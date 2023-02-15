@@ -1,4 +1,4 @@
-# cpp-assignment2<h1>C++ Assignment</h1>
+<h1>C++ Assignment</h1>
 <p><i>Given by Mr. Yohans Samuel</i></p>
 
 <h2>Haramaya University - Department of Software Engineering</h2>
