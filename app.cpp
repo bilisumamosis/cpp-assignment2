@@ -1,10 +1,21 @@
 #include <iostream>
 #include <stdlib.h>
+#include <string>
 using namespace std;
+
+// this is a simple program that calculates the results of students
+
+/*
+    features include:
+    1. can store information of multiple students
+    2. can display all students information at once
+    3. can display a specific students information by using his/her UID
+*/
 
 
 // keeps track of the number of students
 int n = 0;
+
 
 
 struct student
@@ -25,15 +36,16 @@ student students [30];
 
 
 
-
+// used for taking user decision of what to do, could be: to input students data, to display all students' data, to display a single students' data or to quit the program
 char inputUserDecision() {
 	char userDecision;
 	cout << "Press:" << endl << "'i' if you want to input student data" << endl << "'s' if you want to display a student's data using his/her ID" << endl << "'a' if you want to display all students' information" << endl << "'q' if you want to quit the program" << endl;
 	cin >> userDecision;
+	
 	return userDecision;
 }
 
-
+// after taking the student data, it checks to see if the user inputed valid input, if the input is invalid we will ask the user to input again
 bool isUserDecisionValid(char userDecision) {
 	if (userDecision == 'i' || userDecision == 'a' || userDecision == 's' || userDecision == 'q')
 		return true;
@@ -43,6 +55,7 @@ bool isUserDecisionValid(char userDecision) {
 	
 }
 
+// a function to calculate the grade of student using the sum of the different results
 string calcGrade(int sum)
 {
 	if(sum>=40) {
@@ -93,7 +106,7 @@ string calcGrade(int sum)
 }
 
 
-// using the calculated grade as an input, it calculates the GPA
+// using the calculated grade as an input, it calculates the GPA of a student
 
 float calcGPA(string grade) {
 	if (grade == "D") 
@@ -119,6 +132,7 @@ float calcGPA(string grade) {
 }
 
 
+// a fucntion to input the data of the students, its activated once the user decides to input student data
 void inputStudents() {
 		cout << "Input name" << endl;
 		cin >> students[n].name;
@@ -176,6 +190,8 @@ void inputStudents() {
 			
 }
 
+
+// displays all of students' data, it lists out the students with thier data
 void displayAllStudents(student students[]) {
 	if (n != 0) {
 		for (int i = 0; i < n; i++)
@@ -197,6 +213,7 @@ void displayAllStudents(student students[]) {
 	
 }
 
+// displays a single student's data using his/her UID to identify him/her
 void displayAStudent(student students[]) {
 	if (n != 0) {
 	
@@ -245,6 +262,8 @@ void displayAStudent(student students[]) {
 
 }
 
+
+// after checking if the user decision is valid, this function executes the user decision based on the request
 void executeUserDecision(char userDecision) {
 
 	if (userDecision == 'i') {
@@ -275,7 +294,7 @@ int main() {
 		
 		
 		
-		
+		// initial of the program
 		char userDecision = inputUserDecision();
 		
 		while (!isUserDecisionValid((userDecision))) {
@@ -291,6 +310,7 @@ int main() {
 		
 		
 		// keeps running the program until the user quits
+		// the main part of the program
 		while (userDecision != 'q') {
 			
 			userDecision = inputUserDecision();
@@ -310,4 +330,3 @@ int main() {
 
 	return 0;	 
 }
-
