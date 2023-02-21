@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
-#include <string>
+#include <string.h>
 using namespace std;
 
 // this is a simple program that calculates the results of students
@@ -42,6 +42,7 @@ char inputUserDecision() {
 	cout << "Press:" << endl << "'i' if you want to input student data" << endl << "'s' if you want to display a student's data using his/her ID" << endl << "'a' if you want to display all students' information" << endl << "'q' if you want to quit the program" << endl;
 	cin >> userDecision;
 	
+	                                                                                
 	return userDecision;
 }
 
@@ -136,6 +137,7 @@ float calcGPA(string grade) {
 void inputStudents() {
 		cout << "Input name" << endl;
 		cin >> students[n].name;
+	
 		cout << "Input UID" << endl;
 		cin >> students[n].UID;
 		cout << "Input final result" << endl;
@@ -290,11 +292,14 @@ void executeUserDecision(char userDecision) {
 
 
 
+
+
 int main() {
 		
 		
 		
 		// initial of the program
+		
 		char userDecision = inputUserDecision();
 		
 		while (!isUserDecisionValid((userDecision))) {
@@ -306,6 +311,7 @@ int main() {
 		executeUserDecision(userDecision);
 		
 		
+	
 		
 		
 		
@@ -316,6 +322,9 @@ int main() {
 			userDecision = inputUserDecision();
 			while (!isUserDecisionValid((userDecision))) {
 			userDecision = inputUserDecision();
+			}
+			if (userDecision == 'q') {
+			return 0;
 			}
 			
 			executeUserDecision(userDecision);
@@ -330,3 +339,4 @@ int main() {
 
 	return 0;	 
 }
+
